@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('https://i.blogs.es/9f26b7/netflix/1366_2000.jpeg') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #CCCCCC;
+            cursor: not-allowed;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="formulario" action="/registrar" method="post">
+        <h1>REGISTRO</h1>
+
+        {% if mensaje %}
+            <p>{{ mensaje }}</p>
+        {% endif %}
+
+        <label for="username">Username:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <label for="correo">Correo:</label>
+        <input type="email" name="correo" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <br>
+        <button type="submit" id="loginButton" disabled>Registrarse</button>
+
+        <p>¿Ya tienes una cuenta? <a href="{{ url_for('mostrar_login') }}">Inicia Sesión</a></p>
+    </form>
+    <script>
+        document.getElementById('formulario').addEventListener('input', function () {
+            var username = document.getElementsByName('username')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+            var correo = document.getElementsByName('correo')[0].value;
+            document.getElementById('loginButton').disabled = !username || !password || !correo;
+        });
+    </script>
+</body>
+</html>

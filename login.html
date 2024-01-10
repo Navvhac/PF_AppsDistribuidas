@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Netflix_logo.svg/2560px-Netflix_logo.svg.png') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black; /* Cambiando el color de las letras a negro */
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0; /* Eliminando el margen superior por defecto */
+            font-size: 2em; /* Tamaño grande para el título "STREAMING PROJECT" */
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #CCCCCC;
+            cursor: not-allowed;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 15px; /* Agregando un pequeño margen superior al enlace de "¿No tienes una cuenta?" */
+        }
+
+        /* Estilos adicionales para el enlace de registro */
+        a {
+            color: #FF0000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulario" action="/login" method="post">
+        <h1>STREAMING PROJECT</h1>
+
+        {% if mensaje %}
+            <p>{{ mensaje }}</p>
+        {% endif %}
+
+        <label for="username">Username:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <button type="submit" id="loginButton" disabled>Login</button>
+        
+        <p>¿No tienes una cuenta? <a href="{{ url_for('registrar') }}">Regístrate</a></p>
+    </form>
+
+    <script>
+        document.getElementById('formulario').addEventListener('input', function() {
+            var username = document.getElementsByName('username')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+            document.getElementById('loginButton').disabled = !username || !password;
+        });
+    </script>
+</body>
+</html>
