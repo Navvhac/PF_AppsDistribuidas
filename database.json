@@ -1,0 +1,27 @@
+{
+    "0": {
+        "username": "admin",
+        "password": "admin",
+        "correo": "admin@outlook.com"
+    },
+    "1": {
+        "username": "hugo",
+        "password": "pbkdf2:sha256:600000$tdxHcC4aJ0d5tia1$1b1d827c717f0b54427cf3256ccc8083e6a291174959c3dc89a5bd05ac19967d",
+        "correo": "hugo@outlook.com"
+    },
+    "2": {
+        "username": "areshr",
+        "password": "pbkdf2:sha256:600000$hX7EdLACsmi3hTcq$b0b6f21b22c9e8d85c9ec74dbd8642a19f6d9271b17d2c2764776b2b8b3f0e52",
+        "correo": "arh.2001@outlook.com"
+    },
+    "3": {
+        "username": "fan12",
+        "password": "pbkdf2:sha256:600000$YI4YwJPFvXYA3x6R$c586dd7741258ea263141a60f3fb220fbe375a882f9d03c9b4d0c51cca505bc2",
+        "correo": "fan12@outlook.com"
+    },
+    "4": {
+        "username": "roma",
+        "password": "pbkdf2:sha256:600000$GAp6elbC4gRW0Hii$1560734a8dd0576a83f0c3dbaa49db2380f40428b15e1cc5cb13da8e2b9a12d5",
+        "correo": "roma@outlook.com"
+    }
+}
